@@ -4,6 +4,7 @@ title:  "Introduction"
 date:   2019-03-01
 categories: ['Final Year Project']
 ---
+Category: **Final Year Project**
 
 This category is entirely focused on my senior year capstone and the things I learn along the way as we, my two group members and I, navigate through the intersection between Network Security and Machine Learning.  
 

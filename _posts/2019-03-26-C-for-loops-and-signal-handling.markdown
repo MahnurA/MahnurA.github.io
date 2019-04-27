@@ -99,7 +99,7 @@ sa.sa_flags = **SA_RESTART**;
 In short, what I needed was BSD semantics and not System V's, so **signal()** could call **sigaction()**.
 
 I have GLIBC version 2.19. You can check your version by typing the following command in the terminal:
-**ldd -version**
+**ldd --version**
 
 My version should have been causing my compilation of code to adhere to BSD semantics but since I was invoking gcc with the **-std=c99** option I was getting System V again. 
 

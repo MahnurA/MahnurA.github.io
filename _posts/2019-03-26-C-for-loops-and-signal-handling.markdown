@@ -43,7 +43,7 @@ Finally I gave my code to a friend and asked her to run it, believing there migh
 
 Now, I was stuck. This made no sense. We ran the code side by side, her on her Red Hat and while I ran it on Linux Mint, and I couldn't quite believe my eyes, when my code wouldn't run on my system but it did on Red Hat. 
 
-Next conclusion: The code was fine, maybe slight kernel differences and how inherently signals are received by the two different systems were the culprit? My professor had warned that Mac OS might behave differently than Linux, so I tried to extrapolate that argument here. Some digging though showed I was definitely not on the right path, and Linux Mint shouldn't be producing any unexpected behavior like this.
+**Next conclusion:** The code was fine, maybe slight kernel differences and how inherently signals are received by the two different systems were the culprit? My professor had warned that Mac OS might behave differently than Linux, so I tried to extrapolate that argument here. Some digging though showed I was definitely not on the right path, and Linux Mint shouldn't be producing any unexpected behavior like this.
 
 I was stumped. 
 
@@ -86,13 +86,9 @@ My first instinct after the revelation of **-std=c99** being the culprit was fir
 
 # Why does the signal handler not work when C code is compiled with the **-std=c99** flag?
 
-Since I was using gcc, by default, my code is compiled with the gnu89 standard. This does not support loops where the variable is declared within the condition bracket, but does support signal handlers. By default, gcc does not explicitly follow any ANSI/ISO C standards. For versions below 5.1.0, the default version is roughly equivalent to **-std=gnu90**, which is the 1989/1990 C standard with GNU-specific extensions. For version 5.1.0 the default is **-std-gnu11**.
-
-I have gcc version 4.8.4, which resulted in loops not working the way I wanted them to. 
-
 When I was adding the **-std=c99** flag, I was explicitly directing that the code be compiled by the C standard C99 which should have allowed signals to work normally as according to the signals() man page [https://linux.die.net/man/2/signal](https://linux.die.net/man/2/signal),  **signal()** conforms to C89, C99 and POSIX.1-2001. 
 
-However, its portability varies greatly, “In the original UNIX systems, when a handler that was established using **signal()** was invoked by the delivery of a signal, the disposition of the signal would be reset to **SIG_DFL**, and the system did not block delivery of further instances of the signal,” and that System V also provided similar semantics. 
+However, its portability varies greatly, *“In the original UNIX systems, when a handler that was established using **signal()** was invoked by the delivery of a signal, the disposition of the signal would be reset to **SIG_DFL**, and the system did not block delivery of further instances of the signal,”* and that System V also provided similar semantics. 
 
 The situation on Linux is as follows: The kernel's **signal()** system call provides System V semantics. 
 
@@ -115,7 +111,11 @@ But when I put **-std=gnu99** instead of **-std=c99** it worked? Here, what I co
 With the former, gcc by default follows BSD semantics. Gnu99 allows C99 functions along with other functions like **sigaction()**, part of POSIX, to also be available for usage. So by adding the **-std=gnu99** I was getting both, which allowed my signal handling to work properly.  
 Going back to the for loop problem, loops with the variable used, declared within the condition bracket, are only supported in versions equal to, or after, C99. 
 
-Signals worked as they should with all gnu versions -std=gnuxx, and not with any version of strictly -std=cxx
+Since I was using gcc, by default, my code is compiled with the gnu89 standard. This does not support loops where the variable is declared within the condition bracket, but does support signal handlers. By default, gcc does not explicitly follow any ANSI/ISO C standards. For versions below 5.1.0, the default version is roughly equivalent to **-std=gnu90**, which is the 1989/1990 C standard with GNU-specific extensions. For version 5.1.0 the default is **-std-gnu11**.
+
+I have gcc version 4.8.4, which resulted in loops not working the way I wanted them to. 
+
+Signals work as they should with all gnu versions -std=gnuxx, and not with any version of strictly -std=cxx
 
 **P.S:** During my searching into this rabbit hole, some information points to gcc being very strict on Linux but fairly flexible on FreeBSD  so adding the **-std=c99** flag still allow gnu extensions to remain enabled on BSD. 
 

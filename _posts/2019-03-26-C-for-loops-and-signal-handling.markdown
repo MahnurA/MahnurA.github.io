@@ -105,7 +105,7 @@ My version should have been causing my compilation of code to adhere to BSD sema
 
 *“On glibc 2 and later, if the **_BSD_SOURCE** feature test macro is not defined, then **signal()** provides **System V** semantics. (The default implicit definition of **_BSD_SOURCE** is not provided if one invokes gcc(1) in one of its standard modes (-std=xxx or -ansi) or defines various other feature test macros such as **_POSIX_SOURCE, _XOPEN_SOURCE,** or **_SVID_SOURCE**”*
 
-But when I put **-std=gnu99** instead of **-std=c99** it worked? Here, what I conclude is when I added the latter flag, gcc would revert to System V semantics, but my flag would explicitly direct C standard, so there'd be a conflict. And in case of conflicts, BSD semantics are disfavored. 
+However when I put **-std=gnu99** instead of **-std=c99** it worked? Here, what I conclude is when I added the latter flag, gcc would revert to System V semantics as my flag would explicitly direct C standard, while gcc's version would be set to BSD semantics by default, so there'd be a conflict. And in case of conflicts, BSD semantics are disfavored. 
 [https://linux.die.net/man/7/feature_test_macros](https://linux.die.net/man/7/feature_test_macros)
 
 With the former, gcc by default follows BSD semantics. Gnu99 allows C99 functions along with other functions like **sigaction()**, part of POSIX, to also be available for usage. So by adding the **-std=gnu99** I was getting both, which allowed my signal handling to work properly.  

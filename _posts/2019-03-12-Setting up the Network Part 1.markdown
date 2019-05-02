@@ -19,19 +19,20 @@ The victim network, as the name suggests, comprise of computers that are targete
 I've set up the wired ethernet on each computer statically to a specific IP on the same subnet, the netmask is 255.255.255.0 and the gateway and DNS is the IP of the router. Automatic routing is disabled. 
 
 I also edited the network interface file by sudo nano /etc/network/interfaces.d/* command. So the file now looks like the following: 
+<pre>
+# the loopback network interface
+auto lo
+iface lo inet loopback
 
-[#] the loopback network interface<br/>
-auto lo<br/>
-iface lo inet loopback<br/>
-
-[#] the primary network interface<br/>
-auto eno1 <br/>
-iface eno1 inet static <br/>
-address 10.1.100.2<br/>
-netmask 255.255.255.0<br/>
-network 10.1.100.0<br/>
-broadcast 10.1.100.255<br/>
-gateway 10.1.100.4 <br/>
+# the primary network interface
+auto eno1 
+iface eno1 inet static 
+address 10.1.100.2
+netmask 255.255.255.0
+network 10.1.100.0
+broadcast 10.1.100.255
+gateway 10.1.100.4 
+</pre>
 
 After similarly setting up the rest of the computers in the victim network, the computers can now talk to each other through the switch. A router configured to with the IP, 10.1.100.4, is connected to the switch through a port in the same VLAN as the victims. A mobile broadband dongle is connected to this router to provide access to the internet.  
 

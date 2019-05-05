@@ -60,31 +60,5 @@ The attacks decided upon were:
 7. Botnet 
 8. Ransomeware
 
- 
-
-
-
-
-
-
-
-
-
- 
-
-
-CICids 
-Stratosphere
-Creating my own data 
-
-
-
-
-
-
-
-
-
-
 
 

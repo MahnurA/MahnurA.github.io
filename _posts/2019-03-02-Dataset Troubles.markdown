@@ -60,5 +60,14 @@ The attacks decided upon were:
 7. Botnet 
 8. Ransomeware
 
+Nearly all of the attacks covered in CICIDS 2017 were included, except for heartbleed and infiltration attacks, these were replaced by Ransomeware. 
+Of these 8 attacks, the first 5 were carried out in the isolated lab that I setup while the last three's pcap files were obtained from **[Stratosphere IPS Malware Capture Facility Project (MCFP)](https://www.stratosphereips.org/datasets-malware)**.
+
+I was introduced to Stratosphere IPS through twitter when I reached out for help with obtaining dataset or pcap files of network attacks. [Martijn Grooten](https://twitter.com/martijn_grooten), editor of Virus Bulletin helped me contact Sebastian Garcia, who had originally started the Stratosphere Project as part of his PhD work and is currently also on the Stratosphere IPS Team. 
+
+A combination of pcap files from there then were used with network traffic generated in the lab to create this dataset.
+
+
+
 
 

@@ -1,0 +1,31 @@
+---
+layout: post
+title:  "Attacks: The Hows and the Whys"
+date:   2019-04-02
+categories: ['Final Year Project']
+---
+Category: **Final Year Project**
+
+To generate network traffic which contained network attacks, those attacks had to be carried out in the isolated network in the lab I had set up. These were the following: 
+1. Port scan
+2. Brute force SSH
+3. SQL injection 
+4. Cross-site scripting
+5. Denial of Service
+
+Rest of the attacks' pcaps namely, Distributed Denial of Service, Botnet and Ransomeware, would be obtained from [Stratosphere IPS malware captures](https://www.stratosphereips.org/datasets-malware). 
+
+The general pattern for carrying out these attacks was to use available and recent ready-made tools, here, I dedicated considerable time to selecting which tool should be used for which of the five attacks. Each tool was also selected on the basis that it could be used for carrying out different variations of the said attack, however slight or great those variations might be. 
+
+A live version of Kali Linux v17.04 is used to carry out some of the attacks. 
+
+## **Port scan** ## 
+
+A port scan attack is when an attacker scans a target computer(s) to determine which ports are open, closed or filtered. Open ports help indicate which services might be running on which computer and what applications might be in use to provide those services. 
+
+........................................................................................................................................
+This post is under construction and will be updated soon!
+........................................................................................................................................
+
+
+

@@ -51,7 +51,7 @@ Despite all of this we still decided to generate our own network traffic and cre
 For creating our own dataset what was first required was defining which attacks exactly would be included. This would then be the basis of setting up the required network infrastructure and environments on each computer. 
 
 The attacks decided upon were: 
-1. Portscan 
+1. Port scan 
 2. Brute force SSH
 3. SQL injection
 4. Cross-site scripting 

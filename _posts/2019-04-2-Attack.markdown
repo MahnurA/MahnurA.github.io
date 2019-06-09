@@ -21,8 +21,29 @@ A live version of Kali Linux v17.04 is used to carry out some of the attacks.
 
 ## **Port scan** ## 
 
-A port scan attack is when an attacker scans a target computer(s) to determine which ports are open, closed or filtered. Open ports help indicate which services might be running on which computer and what applications might be in use to provide those services. 
+A port scan attack is when an attacker scans a target computer(s) to determine which ports are open, closed or filtered. Open ports help indicate which services might be running on which computer and what applications might be in use to provide those services. The attacker then use this information to exploit known vulnerabilities etc. Port scanning is usually the first step in the kill chain, aka Reconnaissance. Intruder selects target, researches it, and attempts to identify vulnerabilities in the target network. Due to this and how easy it is to carry out, port scanning is widely popular and detection of a port scan by an outside party or attacker would be very helpful in preventing an attack by detecting it in its roots. This is why Port scan is one of the attacks, or rather activities chosen. 
 
+To carry this out, the tool Nmap was used. [Nmap ("Network Mapper")](https://linux.die.net/man/1/nmap) is *"an open source tool for network exploration and security auditing. It was designed to rapidly scan large networks, although it works fine against single hosts. Nmap uses raw IP packets in novel ways to determine what hosts are available on the network, what services (application name and version) those hosts are offering, what operating systems (and OS versions) they are running, what type of packet filters/firewalls are in use, and dozens of other characteristics."*
+
+To carry out port scanning, the attacker computer as in [Part 1]({{ site.baseurl }}{% link _posts/2019-03-12-Setting up the Network Part 1.markdown %}) first connected to the router, and then carried out port scanning on everything present in the internal network.
+
+Different types of port scanning by various options in Nmap were carried out and captured in pcap files through the SPAN port on the Cisco switch. The act of port scanning was done in 3 ways, scanning the whole network and all ports on each computer within that network, scanning the whole network for specified ports on each computer, scanning one computer for some ports. 
+
+The variations to port scan were as follows:
+
+1. Nmap with the -sT option: 
+-sS
+-sF
+-sA
+-sX
+-sN
+-sP
+
+## **Brute Force SSH** ## 
+
+
+
+ 
 ........................................................................................................................................
 This post is under construction and will be updated soon!
 ........................................................................................................................................

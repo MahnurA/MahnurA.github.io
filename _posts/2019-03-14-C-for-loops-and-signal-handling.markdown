@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "C: For loops and signal handling. Why I couldn't get both to work?"
-date:   2019-03-24
+date:   2019-03-14
 categories: [Miscellaneous]
 ---
 
@@ -117,7 +117,7 @@ I have gcc version 4.8.4, which resulted in loops not working the way I wanted t
 
 Signals work as they should with all gnu versions -std=gnuxx, and not with any version of strictly -std=cxx
 
-**P.S:** During my searching into this rabbit hole, some information points to gcc being very strict on Linux but fairly flexible on FreeBSD  so adding the **-std=c99** flag still allow gnu extensions to remain enabled on BSD. 
+**P.S:** During my search into this rabbit hole, some information points to gcc being very strict on Linux but fairly flexible on FreeBSD  so adding the **-std=c99** flag should still allow gnu extensions to remain enabled on BSD. 
 
 
 

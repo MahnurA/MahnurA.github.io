@@ -10,7 +10,9 @@ Over the years as machine learning has been applied to network security in the h
 
 Since the project I undertook hoped to tackle in detection, and possibly later, prevention, near realtime was of ultimate importance. Next, of almost equal importance was that packets once detected either way as Benign or Not, needed to be labelled as such *packet-wise.*  
 
-Typically, when thousands and millions of packets are analyzed, whether for Machine Learning or for general network traffic analysis by network administrators, softwares used for that analysis convert singular packets into flows.
+Typically, when thousands and millions of packets are analyzed, whether for Machine Learning or for general network traffic analysis by network administrators, softwares used for that analysis convert movement of singular packets as seen in PCAP files, into flows.
+
+### What are network flows? ### 
 
 A **Flow** is an end to end connection that shows how the data is flowing through the network.
 
@@ -23,6 +25,12 @@ Different tools have different timeout values. Since the longer the timeout valu
 Timeout values also affect the accuracy of a flow record. Flows with TCP as their protocol and dealing with application layer software will go on for far longer than a 3-way handshake and an instant disconnection classic to checking if a port is open or closed. The former might extend for several seconds while the latter would most usually finish up in a couple of milliseconds. Thus, if the timeouts are set too low, all packets that should be in the same flow might not be categorized as such, decreasing the accuracy of flows. 
 
 This is how unidirectional flows work. To lessen the amount of data being observed to an even lesser amount, most tools combine packets to obtain *bi-directional* flows.
+
+**Bi-directional flows** are similar to uni-directional flows. They have the same five characteristics, namely, Source IP, Destination IP, Source Port, Destination Port, and Protocol. However, here, Source and Destination, both IPs and Ports, when swapped *also* belong to the same flow. So a flow and its response flow combined, make up a bi-directional flow. 
+
+A PCAP file, processed and converted to a CSV containing bi-directional flows can be used to extract unique features. Since a bi-directional flow is the entire conversation that one machine holds with another, how that conversation is carried out can tell us a lot about what type of conversation it might be. 
+
+### Flows and Features ###
 
 
 

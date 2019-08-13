@@ -9,7 +9,7 @@ categories: [Miscellaneous]
 
 Right around exactly one year from now I was first introduced to C through the Systems Programming course I took. I was both terrified and beyond excited. 
 
-Fast forward two months, and I was making a server-client model, [https://github.com/MahnurA/Systems-Programming](https://github.com/MahnurA/Systems-Programming), with the server emulating a handful of Linux's shell behavior. Somewhere in the middle of it's implementation I ran into a very weird issue.
+Fast forward two months, and I was making a [server-client model](https://github.com/MahnurA/Systems-Programming), with the server emulating a handful of Linux's shell behavior. Somewhere in the middle of it's implementation I ran into a very weird issue.
 
 # The problem
 
@@ -86,7 +86,7 @@ My first instinct after the revelation of **-std=c99** being the culprit was fir
 
 # Why does the signal handler not work when C code is compiled with the **-std=c99** flag?
 
-When I was adding the **-std=c99** flag, I was explicitly directing that the code be compiled by the C standard C99 which should have allowed signals to work normally as according to the signals() man page [https://linux.die.net/man/2/signal](https://linux.die.net/man/2/signal),  **signal()** conforms to C89, C99 and POSIX.1-2001. 
+When I was adding the **-std=c99** flag, I was explicitly directing that the code be compiled by the C standard C99 which should have allowed signals to work normally as according to the [signals() man page](https://linux.die.net/man/2/signal),  **signal()** conforms to C89, C99 and POSIX.1-2001. 
 
 However, its portability varies greatly, *“In the original UNIX systems, when a handler that was established using **signal()** was invoked by the delivery of a signal, the disposition of the signal would be reset to **SIG_DFL**, and the system did not block delivery of further instances of the signal,”* and that System V also provided similar semantics. 
 
@@ -105,8 +105,7 @@ My version should have been causing my compilation of code to adhere to BSD sema
 
 *“On glibc 2 and later, if the **_BSD_SOURCE** feature test macro is not defined, then **signal()** provides **System V** semantics. (The default implicit definition of **_BSD_SOURCE** is not provided if one invokes gcc(1) in one of its standard modes (-std=xxx or -ansi) or defines various other feature test macros such as **_POSIX_SOURCE, _XOPEN_SOURCE,** or **_SVID_SOURCE**”*
 
-However when I put **-std=gnu99** instead of **-std=c99** it worked? Here, what I conclude is when I added the latter flag, gcc would revert to System V semantics as my flag would explicitly direct C standard, while gcc's version would be set to BSD semantics by default, so there'd be a conflict. And in case of conflicts, BSD semantics are disfavored. 
-[https://linux.die.net/man/7/feature_test_macros](https://linux.die.net/man/7/feature_test_macros)
+However when I put **-std=gnu99** instead of **-std=c99** it worked? Here, what I conclude is when I added the latter flag, gcc would revert to System V semantics as my flag would explicitly direct C standard, while gcc's version would be set to BSD semantics by default, so there'd be a conflict. And in case of conflicts, [BSD semantics are disfavored.](https://linux.die.net/man/7/feature_test_macros)
 
 With the former, gcc by default follows BSD semantics. Gnu99 allows C99 functions along with other functions like **sigaction()**, part of POSIX, to also be available for usage. So by adding the **-std=gnu99** I was getting both, which allowed my signal handling to work properly.  
 Going back to the for loop problem, loops with the variable used, declared within the condition bracket, are only supported in versions equal to, or after, C99. 
@@ -117,7 +116,11 @@ I have gcc version 4.8.4, which resulted in loops not working the way I wanted t
 
 Signals work as they should with all gnu versions -std=gnuxx, and not with any version of strictly -std=cxx
 
-**P.S:** During my search into this rabbit hole, some information points to gcc being very strict on Linux but fairly flexible on FreeBSD  so adding the **-std=c99** flag should still allow gnu extensions to remain enabled on BSD. 
+**P.S:** During my search into this rabbit hole, some information points to gcc being very strict on Linux but fairly flexible on FreeBSD  so adding the **-std=c99** flag should still allow gnu extensions to remain enabled on BSD.
+
+So to sum up, here's a diagram I thought might help clear up all that I figured out. <br/>
+<br/>
+![My helpful screenshot](/assets/SignalHandling.png) 
 
 
 

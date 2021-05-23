@@ -1,5 +1,6 @@
 ---
 layout: post
+text-align: justify
 title:  "Introduction"
 date:   2019-03-01
 categories: ['Final Year Project']

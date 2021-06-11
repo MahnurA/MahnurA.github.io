@@ -1,16 +1,60 @@
 ---
 layout: post
 text-align: justify
-title:  "Impacket"
+title:  "Pip for Python2 and 3, and Impacket"
 date:   2021-03-02
 ---
 
 Subcategory: **[Installations: Getting Kali ready for OSCP]({% post_url 2021-03-01-Installations: Getting Kali ready for OSCP %})**
 
 
+These are instructions for Kali version 2020.1 and 2020.3
+
+## Installing Impacket for Python 2
+### 1. Pip for Python 2
+<pre><code class="console">
+wget https://bootstrap.pypa.io/pip/2.7/get-pip.py
+
+</code></pre>
+![My helpful screenshot](/assets/getting_pip.png) 
+<pre><code class="console">
+python get-pip.py
+
+</code></pre>
+
+## Installing Impacket for Python 3
+### 1. Pip for Python 3
+<pre><code class="console">
+sudo apt install python3-pip
+
+</code></pre>
+
+### 2. Install Impacket
+<pre><code class="console">
+sudo git clone https://github.com/SecureAuthCorp/impacket.git /opt/impacket
+
+</code></pre>
+<pre><code class="console">
+sudo pip3 install -r /opt/impacket/requirements.txt
+
+</code></pre>
+<pre><code class="console">
+cd /opt/impacket
+
+</code></pre>
+<pre><code class="console">
+sudo python3 ./setup.py install
+
+</code></pre>
+
+### 3. Check Impacket module is installed
+<pre><code class="console">
+pip3 freeze
+
+</code></pre>
 <== This post is under construction ==>
 
 
-[Installing Impacket]({% post_url 2021-03-02-Installing-Impacket %})
+
 
 

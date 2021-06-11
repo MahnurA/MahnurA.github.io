@@ -2,7 +2,7 @@
 layout: post
 title:  "Network Security Elective Project Report"
 date:   2019-03-10
-categories: [All Infosec Things]
+categories: [Miscellaneous]
 ---
 
 **Introduction**

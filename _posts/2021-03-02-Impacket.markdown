@@ -5,7 +5,7 @@ title:  "Pip for Python2 and 3, and Impacket"
 date:   2021-03-02
 ---
 
-Subcategory: **[Installations: Getting Kali ready for OSCP]({% post_url 2021-03-01-Installations: Getting Kali ready for OSCP %})**
+Subcategory: **[Changes & Installations: Getting Kali ready for OSCP]({% post_url 2021-03-01-Changes & Installations: Getting Kali ready for OSCP %})**
 
 
 These are instructions for Kali version 2020.1 and 2020.3

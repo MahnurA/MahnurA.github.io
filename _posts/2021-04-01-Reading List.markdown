@@ -7,11 +7,12 @@ categories: ['Certifications, Courses and Books']
 ---
 Category: **Certifications, Courses and Books**
 
-As I prepare for taking the Offensive Security Certified Professional (OSCP), beef up on my knowledge and get more familiar with the offensive side of security, I'm realizing how many significant changes need to be to out-of-the-box Kali. These changes are often very time consuming, rife with errors, and generally quite frustrating. 
+This is a list of books that I am reading/have read. The idea is to collect all resources I've used to build up my knowledge in one place. 
 
-This post will explore how to install some of the tools required to carry out some common exploits. Since this post was born out of hoping to document all installations required for the OSCP on Kali, it will focus on a lot of tools common for the exam and revolve around tools required to carry out Metasploit exploit method alternatives.  
+# May/June 2021
 
-The Kali version used here for all installations is: 2020.1
+- [The Web Application Hacker's Handbook: Discovering and Exploiting Security Flaws, Second Edition by Dafydd Stuttard and Marcus Pinto](https://www.amazon.com/Web-Application-Hackers-Handbook-Exploiting/dp/1118026470)<br/>
+- [Alice & Bob learn Application Security by Tanya Janca](https://www.wiley.com/en-us/Alice+and+Bob+Learn+Application+Security-p-9781119687405)<br/>
 
-## [Impacket]({% post_url 2021-03-02-Impacket %})
+
 

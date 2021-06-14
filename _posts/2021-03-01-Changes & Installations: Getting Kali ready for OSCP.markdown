@@ -1,17 +1,19 @@
 ---
 layout: post
-title:  "Installations: Getting Kali ready for OSCP"
+title:  "Changes & Installations: Getting Kali ready for OSCP"
 date:   2021-03-01
 categories: ['Offensive Security']
 ---
 Category: **Offensive Security**
 
-{: .text-justify}
 As I prepare for taking the Offensive Security Certified Professional (OSCP), beef up on my knowledge and get more familiar with the offensive side of security, I'm realizing how many significant changes need to be to out-of-the-box Kali. These changes are often very time consuming, rife with errors, and generally quite frustrating. 
 
 This post will explore how to install some of the tools required to carry out some common exploits. Since this post was born out of hoping to document all installations required for the OSCP on Kali, it will focus on a lot of tools common for the exam and revolve around tools required to carry out Metasploit exploit method alternatives.  
 
 The Kali version used here for all installations is: 2020.1
 
-## [Impacket]({% post_url 2021-03-02-Impacket %})
+# [Impacket]({% post_url 2021-03-02-Impacket %})
+# [MS17-010 Exploit]({% post_url 2021-04-05-MS17-010 Exploit %})
+# [SMB Config Change]({% post_url 2021-03-15-SMB Config Change %})
 
+This post will be updated from time to time as I install and make more changes to out-of-the-box Kali. 
